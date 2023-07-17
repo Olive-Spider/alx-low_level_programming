@@ -6,7 +6,6 @@
  * use putchar only twice
  * Return: 0
 */
-
 int main(void)
 {
 char lower_alphabet;
