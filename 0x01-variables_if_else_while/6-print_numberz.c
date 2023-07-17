@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - all single digit numbers of base 10 
- * 
+ * main - all single digit numbers of base 10
+ *
  * Return: 0
 */
 int main(void)
