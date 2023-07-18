@@ -20,7 +20,7 @@ if (j < 9)
 printf(", ");
 }
 }
-if (i < 9)
+if (i <= 9)
 {
 printf("\n");
 }
