@@ -21,7 +21,7 @@ fib[0] = fib[1];
 fib[1] = next_fib;
 }
 
-printf("%llu\n", sum);
+printf("%d\n", sum);
 
 return (0);
 }
