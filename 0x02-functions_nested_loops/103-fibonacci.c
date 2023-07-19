@@ -16,7 +16,7 @@ if (fib[1] % 2 == 0)
 {
 sum += fib[1];
 }
-unsigned long long next_fib = fib[0] + fib[1];
+int next_fib = fib[0] + fib[1];
 fib[0] = fib[1];
 fib[1] = next_fib;
 }
