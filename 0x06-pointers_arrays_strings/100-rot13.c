@@ -9,14 +9,19 @@
 */
 char *rot13(char *str)
 {
-int i;
+int i, j;
+char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
 for (i = 0; str[i] != '\0'; i++)
 {
-char c = str[i];
-if (isalpha(c))
+for (j = 0; j < 52; j++)
 {
-char base = islower(c) ? 'a' : 'A';
-str[i] = (c - base + 13) % 26 + base;
+if (str[i] == data1[j])
+{
+str[i] = datarot[j];
+break;
+}
 }
 }
 return (str);
