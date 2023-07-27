@@ -9,19 +9,27 @@
 */
 char *cap_string(char *str)
 {
-char *ptr = str;
-int should_capitalize = 1;
-while (*ptr != '\0')
+int ptr = 0;
+while (str[ptr])
 {
-if (should_capitalize && isalpha(*ptr))
-{
-*ptr = toupper(*ptr);
-should_capitalize = 0;
-}
-else if (isspace(*ptr) || ispunct(*ptr))
-{
-should_capitalize = 1;
-}
+while (!(str[ptr] >= 'a' && str[ptr] <= 'z'))
+ptr++;
+
+if (str[ptr - 1] == ' ' ||
+str[ptr - 1] == '\t' ||
+str[ptr - 1] == '\n' ||
+str[ptr - 1] == ',' ||
+str[ptr - 1] == ';' ||
+str[ptr - 1] == '.' ||
+str[ptr - 1] == '!' ||
+str[ptr - 1] == '?' ||
+str[ptr - 1] == '"' ||
+str[ptr - 1] == '(' ||
+str[ptr - 1] == ')' ||
+str[ptr - 1] == '{' ||
+str[ptr - 1] == '}' ||
+ptr == 0)
+str[ptr] -= 32;
 ptr++;
 }
 return (str);
