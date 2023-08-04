@@ -17,7 +17,7 @@ if (start > end)
 return (-1);
 }
 mid = start + (end - start) / 2;
-square = mid * mid;
+square = mid *mid;
 if (square == n)
 {
 return (mid);
