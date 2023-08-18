@@ -1,54 +1,41 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "3-calc.h"
 #include "function_pointers.h"
-
+#include <stdlib.h>
+#include <stdio.h>
+#include "3-calc.h"
 /**
  * main - function
  * @argc: input
  * @argv: input
  * Return: 0
-*/
+ */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 int num1, num2;
-int result;
-int i;
-op_t ops[] = {
-{"+", op_add},
-{"-", op_sub},
-{"*", op_mul},
-{"/", op_div},
-{"%", op_mod},
-{NULL, NULL}
-};
+char *op;
 
 if (argc != 4)
 {
 printf("Error\n");
-return (98);
+exit(98);
 }
 
 num1 = atoi(argv[1]);
+op = argv[2];
 num2 = atoi(argv[3]);
 
-if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
+if (get_op_func(op) == NULL || op[1] != '\0')
 {
 printf("Error\n");
-return (100);
+exit(99);
 }
 
-i = 0;
-while (ops[i].op != NULL)
+if ((*op == '/' && num2 == 0) || (*op == '%' && num2 == 0))
 {
-if (*(ops[i].op) == *argv[2] && argv[2][1] == '\0')
-{
-result = ops[i].f(num1, num2);
-printf("%d\n", result);
-return (0);
-}
-i++;
-}
 printf("Error\n");
-return (99);
+exit(100);
+}
+
+printf("%d\n", get_op_func(op)(num1, num2));
+
+return (0);
 }
