@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "3-calc.h"
+#include "function_pointers.h"
 
 /**
  * main - function
@@ -8,7 +9,7 @@
  * @argv: input
  * Return: 0
 */
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 int num1, num2;
 int result;
