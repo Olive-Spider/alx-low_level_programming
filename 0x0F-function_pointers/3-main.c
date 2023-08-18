@@ -12,6 +12,15 @@ int main(int argc, char *argv[])
 {
 int num1, num2;
 int result;
+int i;
+op_t ops[] = {
+{"+", op_add},
+{"-", op_sub},
+{"*", op_mul},
+{"/", op_div},
+{"%", op_mod},
+{NULL, NULL}
+};
 
 if (argc != 4)
 {
@@ -28,15 +37,7 @@ printf("Error\n");
 return (100);
 }
 
-op_t ops[] = {
-{"+", op_add},
-{"-", op_sub},
-{"*", op_mul},
-{"/", op_div},
-{"%", op_mod},
-{NULL, NULL}
-};
-int i = 0;
+i = 0;
 while (ops[i].op != NULL)
 {
 if (*(ops[i].op) == *argv[2] && argv[2][1] == '\0')
